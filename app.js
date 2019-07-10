@@ -1,5 +1,7 @@
-userScore = 0;
-computerScore = 0;
+'use strict'
+
+let userScore = 0;
+let computerScore = 0;
 const userScore_span = document.getElementById("user-score");
 const computerScore_span = document.getElementById("computer-score");
 const scoreBoard_div = document.querySelector(".score-board");
@@ -10,7 +12,7 @@ const scissors_div = document.getElementById("sc");
 const lizard_div = document.getElementById("l");
 const spock_div = document.getElementById("sp");
 
-function getComputerChoice() {
+const getComputerChoice= ()=> {
     const choices = [
       'r', 'p', 'sc', 'l', 'sp'
     ];
@@ -18,16 +20,14 @@ function getComputerChoice() {
     return choices[randomNumber];
 }
 
-
-function convertToWord(token) {
+const convertToWord= (token)=> {
   if (token ==="r") return "Rock";
     if (token ==="p") return "Paper";
       if (token ==="sc") return "Scissors";
         if (token ==="l") return "Lizard";
           if (token ==="sp") return "Spock";
 }
-
-function win(userChoice, computerChoice) {
+const win= (userChoice,computerChoice)=> {
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   const userChoice_div = document.getElementById(userChoice);
@@ -41,7 +41,7 @@ setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
 
 
 
-function lose(userChoice, computerChoice) {
+const lose= (userChoice,computerChoice)=> {
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   const userChoice_div = document.getElementById(userChoice);
@@ -53,7 +53,7 @@ function lose(userChoice, computerChoice) {
 setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
 }
 
-function draw(userChoice, computerChoice) {
+const draw= (userChoice,computerChoice)=> {
   const smallUserWord = "user".fontsize(3).sub();
   const smallCompWord = "comp".fontsize(3).sub();
   const userChoice_div = document.getElementById(userChoice);
@@ -62,7 +62,7 @@ function draw(userChoice, computerChoice) {
 setTimeout(() => userChoice_div.classList.remove('gray-glow'), 300);
 }
 
-function game(userChoice) {
+const game= (userChoice)=> {
 
     const computerChoice = getComputerChoice();
     switch (userChoice + computerChoice) {
@@ -100,7 +100,7 @@ function game(userChoice) {
     }
 }
 
-function main() {
+const main=() =>{
     rock_div.addEventListener('click', () => game("r"));
 
     paper_div.addEventListener('click', () =>
